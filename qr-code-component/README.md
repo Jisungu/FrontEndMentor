@@ -24,7 +24,7 @@ Users should be able to build out this QR code component and get it looking as c
 
 ### Links
 
-- [Solution](https://github.com/Jisungu/qr-code-component)
+- [Solution](https://github.com/Jisungu/FrontEndMentor/tree/main/qr-code-component)
 - [Live Demo](https://Jisungu.github.io/FrontEndMentor/qr-code-component)
 
 ## My process
