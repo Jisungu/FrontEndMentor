@@ -8,8 +8,8 @@ function animateNumber(inputId, value, target) {
         $(inputId).text(value);
     }, 40);
 }
-let buttonStatus = true;
 $("#calculator__button").click(function() {
+    (function(w){w = w || window; var i = w.setInterval(function(){},100000); while(i>=0) { w.clearInterval(i--); }})(/*window*/);
     let dayDisplayValue = 0;
     let monthDisplayValue = 0;
     let yearDisplayValue = 0;
