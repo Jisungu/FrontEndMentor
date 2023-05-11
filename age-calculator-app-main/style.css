@@ -1,0 +1,221 @@
+@font-face {
+    font-family: Poppins;
+    src: url(./assets/fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url(./assets/fonts/Poppins-Bold.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url(./assets/fonts/Poppins-Italic.ttf);
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url(./assets/fonts/Poppins-BoldItalic.ttf);
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url(./assets/fonts/Poppins-ExtraBold.ttf);
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url(./assets/fonts/Poppins-ExtraBoldItalic.ttf);
+    font-weight: 800;
+    font-style: italic;
+}
+
+body {
+    font-family: Poppins;
+    background-color: hsl(0, 0%, 94%);
+}
+
+#calculator {
+    width: 840px;
+    min-height: 650px;
+    background-color: hsl(0, 0%, 100%);
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 20px 20px 190px 20px;
+}
+
+#calculator__button {
+    position: absolute;
+    right: 56px;
+    top: 165px;
+}
+
+#calculator__button img {
+    width: 44px;
+    background-color: #864cff;
+    border-radius: 46px;
+    padding: 26px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#calculator__button img:hover {
+    background-color: black;
+}
+
+#calculator__form {
+    display: flex;
+    margin-top: 61px;
+    margin-left: 56px;
+    width: 605px;
+    margin-bottom: 15px;
+}
+
+.calculator__input {
+    display: grid;
+    margin-right: 32px;
+}
+
+.calculator__input input {
+    width: 134px;
+    height: 72px;
+    font-size: 30px;
+    font-weight: bold;
+    padding-left: 26px;
+    border-radius: 10px;
+    border: 1px solid #dddddd;
+    margin-bottom: 10px;
+    transition: all 0.3s;
+}
+
+.calculator__input input::placeholder {
+    color: #898989;
+}
+
+.calculator__input input:focus {
+    border: 1px solid hsl(259, 100%, 65%);
+}
+
+.calculator__input--error input {
+    border: 1px solid #ff6367;
+}
+
+.calculator__input label {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #898989;
+    letter-spacing: 3px;
+    font-size: 13px;
+    transition: all 0.3s;
+}
+
+.calculator__input--error label {
+    color: #ff6367;
+}
+
+#calculator__result {
+    font-size: 90px;
+    font-weight: 800;
+    font-style: italic;
+    margin-left: 56px;
+    margin-right: 95px;
+    border-top: 2px solid #efefef;
+    padding-top: 32px;
+}
+
+.calculator__value {
+    color: hsl(259, 100%, 65%);
+}
+
+#calculator__result div {
+    height: 100px;
+}
+
+.calculator__error-message {
+    min-height: 24px;
+    display: block;
+    color: #ff6367;
+    font-style: italic;
+    visibility:hidden;
+    opacity:0;
+    transition:visibility 0.3s,opacity 0.3s;
+
+}
+
+.calculator__error-message--active {
+    visibility:visible;
+    opacity:1;
+}
+
+@media screen and (max-width: 840px) {
+    #calculator {
+        width: 330px;
+        min-height: 580px;
+        background-color: hsl(0, 0%, 100%);
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        border-radius: 20px 20px 110px 20px;
+    }
+    #calculator__result {
+        font-size: 51px;
+        margin-left: 25px;
+        margin-right: 25px;
+        padding-top: 50px;
+        margin-top: 45px;
+    }
+    #calculator__result div {
+        height: initial;
+    }
+
+    #calculator__button {
+        position: absolute;
+        top: 190px;
+        transform: translate(-50%, 0);
+        right: inherit;
+        left: 50%;
+    }
+
+    #calculator__button img{
+        width: 30px;
+        padding: 19px;
+    }
+
+    #calculator__form {
+        margin-left: 25px;
+    }
+
+    .calculator__input input {
+        font-weight: bold;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        transition: all 0.3s;
+        width: 74px;
+        height: 50px;
+        font-size: 18px;
+        padding-left: 7px;
+    }
+
+    .calculator__input {
+        margin-right: 10px;
+    }
+
+    .calculator__error-message {
+        font-size: 8px;
+        font-weight: bold;
+    }
+}
+

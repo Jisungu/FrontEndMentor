@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <title>Frontend Mentor | Age calculator app</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <main>
+      <div id="calculator">
+        <div id="calculator__button">
+          <img src="./assets/images/icon-arrow.svg" alt="icon-arrow">
+        </div>
+        <div id="calculator__form">
+          <div class="calculator__input">
+            <label for="calculator__day">Day</label>
+            <input type="text" name="day" id="calculator__day" placeholder="DD">
+            <div class="calculator__error-message"></div>
+          </div>
+          <div class="calculator__input">
+            <label for="calculator__month">Month</label>
+            <input type="text" name="month" id="calculator__month" placeholder="MM">
+            <div class="calculator__error-message"></div>
+          </div>
+          <div class="calculator__input">
+            <label for="calculator__year">Year</label>
+            <input type="text" name="year" id="calculator__year" placeholder="YYYY">
+            <div class="calculator__error-message"></div>
+          </div>
+        </div>
+        <div id="calculator__result">
+          <div><span id="calculator__year-value" class="calculator__value">--</span> <span id="calculator__year-label">years</span></div>
+          <div><span id="calculator__month-value" class="calculator__value">--</span> <span id="calculator__month-label">months</span></div>
+          <div><span id="calculator__day-value" class="calculator__value">--</span> <span id="calculator__day-label">days</span></div>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
