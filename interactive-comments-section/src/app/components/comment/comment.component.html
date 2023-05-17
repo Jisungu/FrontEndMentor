@@ -1,0 +1,45 @@
+<div class="comment">
+  <div class="comment__buttons">
+    <div class="comment__reply-button" (click)="onDisplayForm()" *ngIf="comment.user.username !== currentUser.username">
+      <img src="assets/images/icon-reply.svg" alt="icon-reply">
+      Reply
+    </div>
+    <div class="comment__delete-button" (click)="onDisplayModal()" *ngIf="comment.user.username === currentUser.username">
+      <img src="assets/images/icon-delete.svg" alt="icon-delete">
+      Delete
+    </div>
+    <div class="comment__edit-button" (click)="onDisplayForm()" *ngIf="comment.user.username === currentUser.username">
+      <img src="assets/images/icon-edit.svg" alt="icon-edit">
+      Edit
+    </div>
+  </div>
+
+  <div class="comment__score">
+    <span class="comment__score-plus" (click)="updateScore('plus')">
+      <img *ngIf="comment.ratingAction !== 'plus'" src="assets/images/icon-plus.svg" alt="icon-plus">
+      <img *ngIf="comment.ratingAction === 'plus'" src="assets/images/icon-plus-1.svg" alt="icon-plus">
+    </span>
+    <span class="comment__score-value">{{ comment.score }}</span>
+    <span class="comment__score-minus" (click)="updateScore('minus')">
+      <img *ngIf="comment.ratingAction !== 'minus'" src="assets/images/icon-minus.svg" alt="icon-minus">
+      <img *ngIf="comment.ratingAction === 'minus'" src="assets/images/icon-minus-1.svg" alt="icon-minus">
+    </span>
+  </div>
+  <div class="comment__user-content">
+    <div class="comment__user">
+      <img class="comment__user-image" [src]="imageUrl" [alt]="comment.user.username">
+      <div class="comment__user-name">{{ comment.user.username }}</div>
+      <div class="comment__user-current" *ngIf="comment.user.username === currentUser.username">you</div>
+      <div class="comment__created-at">{{ comment.createdAt }}</div>
+    </div>
+    <div class="comment__content">
+      <span class="comment__reply-username" *ngIf="comment.replyingTo !== undefined && comment.replyingTo !== null"> @{{ comment.replyingTo}}</span>
+      {{ comment.content }}
+    </div>
+  </div>
+</div>
+<app-form *ngIf="displayForm" [isEditReply]="comment.replyingTo !== undefined && comment.replyingTo !== null" [replyCommentId]="comment.id"></app-form>
+<div class="comment-replies" *ngIf="comment.replies && comment.replies.length > 0">
+  <div class="comment-replies__margin"></div>
+  <div><app-comment *ngFor="let comment of comment.replies" [comment]="comment"></app-comment></div>
+</div>

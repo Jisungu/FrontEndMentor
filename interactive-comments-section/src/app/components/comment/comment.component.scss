@@ -1,0 +1,99 @@
+.comment {
+  background-color: hsl(0, 0%, 100%);
+  margin-bottom: 18px;
+  display: flex;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  min-width: 622px;
+  &__score {
+    max-height: 84px;
+    margin-right: 20px;
+    min-width: 33px;
+    background-color: #f5f6fb;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 8px;
+    span {
+        width: 100%;
+        display: block;
+        text-align: center;
+        padding: 6px 0;
+    }
+    &-value {
+      font-weight: 700;
+      color: hsl(238, 40%, 52%);
+    }
+    &-plus, &-minus {
+      cursor: pointer;
+    }
+  }
+  &__user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+    div, &-image {
+      margin-right: 13px;
+    }
+    &-image {
+      width: 27px;
+    }
+    &-name {
+      font-weight: 500;
+    }
+    &-current {
+      background-color: hsl(238, 40%, 52%);
+      color: white;
+      border-radius: 6px;
+      padding: 3px 8px;
+    }
+  }
+  &__created-at {
+    color: hsl(211, 10%, 45%);
+  }
+  &__content {
+    line-height: 20px;
+    color: hsl(211, 10%, 45%);
+  }
+  &__reply-username {
+    font-weight: 700;
+    color: hsl(238, 40%, 52%);
+  }
+  &__buttons {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    display: flex;
+    div {
+      margin: 0 10px;
+    }
+  }
+  &__reply-button, &__edit-button {
+    color: #5357b6;
+    font-weight: 500;
+    cursor: pointer;
+    img {
+      margin-right: 5px;
+    }
+  }
+
+  &__delete-button {
+    color: #ed6368;
+    font-weight: 500;
+    cursor: pointer;
+    img {
+      margin-right: 5px;
+    }
+  }
+}
+
+.comment-replies {
+  display: flex;
+  &__margin {
+    border-right: 2px solid hsl(223, 19%, 93%);
+    padding-left: 33px;
+    margin-right: 33px;
+    margin-bottom: 20px;
+  }
+}
