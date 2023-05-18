@@ -38,7 +38,7 @@
     </div>
     <form [formGroup]="commentForm" (ngSubmit)="onSubmitForm()" *ngIf="comment.user.username === currentUser.username && isEdit">
       <div>
-        <textarea class="comment__form"  [ngClass]="isEditReply ? 'comment__form--edit-reply' : ''" placeholder="Add a comment..."></textarea>
+        <textarea class="comment__form" formControlName="content" [ngClass]="isEditReply ? 'comment__form--edit-reply' : ''" placeholder="Add a comment..."></textarea>
       </div>
 
       <div style="text-align: right;margin-top: 10px;">
