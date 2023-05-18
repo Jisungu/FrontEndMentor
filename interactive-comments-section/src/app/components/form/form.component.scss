@@ -22,6 +22,10 @@
     border: none;
     font-weight: 600;
     border-radius: 8px;
+    transition: background-color 0.3s;
+    &:hover {
+      background-color: hsl(238deg 40% 52% / 50%);
+    }
   }
   &__textarea {
     width: 464px;
@@ -34,5 +38,58 @@
     &--edit-reply {
       width: 396px;
     }
+  }
+}
+
+.form-mobile {
+  form {
+    display: inherit;
+  }
+  background-color: hsl(0, 0%, 100%);
+  display: none;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  .form {
+    &__user-image {
+      width: 32px;
+    }
+    &__button {
+      cursor: pointer;
+      width: 104px;
+      height: 48px;
+      background-color: hsl(238, 40%, 52%);
+      color: white;
+      border: none;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+      &:hover {
+        background-color: hsl(238deg 40% 52% / 50%);
+      }
+    }
+    &__textarea {
+      width: 260px;
+      height: 74px;
+      border: 1px solid hsl(223, 19%, 93%);
+      border-radius: 6px;
+      font-family: 'Rubik', sans-serif;
+      padding: 10px 20px;
+      color: hsl(211, 10%, 45%);
+      margin-bottom: 10px;
+      &--edit-reply {
+        width: 244px;
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: 840px) {
+  .form {
+    display: none;
+  }
+  .form-mobile {
+    display: block;
   }
 }

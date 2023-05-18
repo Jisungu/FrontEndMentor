@@ -32,13 +32,50 @@
       <div class="comment__user-current" *ngIf="comment.user.username === currentUser.username">you</div>
       <div class="comment__created-at">{{ comment.createdAt }}</div>
     </div>
-    <div class="comment__content">
+    <div class="comment__content" *ngIf="!isEdit">
       <span class="comment__reply-username" *ngIf="comment.replyingTo !== undefined && comment.replyingTo !== null"> @{{ comment.replyingTo}}</span>
       {{ comment.content }}
     </div>
+    <form [formGroup]="commentForm" (ngSubmit)="onSubmitForm()" *ngIf="comment.user.username === currentUser.username && isEdit">
+      <div>
+        <textarea class="comment__form" formControlName="content" [ngClass]="isEditReply ? 'comment__form--edit-reply' : ''" id="content" placeholder="Add a comment..."></textarea>
+      </div>
+
+      <div style="text-align: right;margin-top: 10px;">
+        <button type="submit" class="comment__button">UPDATE</button>
+      </div>
+    </form>
   </div>
+  <div class="comment__score-buttons-mobile">
+    <div class="comment__score-mobile">
+      <span class="comment__score-plus" (click)="updateScore('plus')">
+        <img *ngIf="comment.ratingAction !== 'plus'" src="assets/images/icon-plus.svg" alt="icon-plus">
+        <img *ngIf="comment.ratingAction === 'plus'" src="assets/images/icon-plus-1.svg" alt="icon-plus">
+      </span>
+        <span class="comment__score-value">{{ comment.score }}</span>
+        <span class="comment__score-minus" (click)="updateScore('minus')">
+        <img *ngIf="comment.ratingAction !== 'minus'" src="assets/images/icon-minus.svg" alt="icon-minus">
+        <img *ngIf="comment.ratingAction === 'minus'" src="assets/images/icon-minus-1.svg" alt="icon-minus">
+      </span>
+    </div>
+    <div class="comment__buttons-mobile">
+      <div class="comment__reply-button" (click)="onDisplayForm()" *ngIf="comment.user.username !== currentUser.username">
+        <img src="assets/images/icon-reply.svg" alt="icon-reply">
+        Reply
+      </div>
+      <div class="comment__delete-button" (click)="onDisplayModal()" *ngIf="comment.user.username === currentUser.username">
+        <img src="assets/images/icon-delete.svg" alt="icon-delete">
+        Delete
+      </div>
+      <div class="comment__edit-button" (click)="onDisplayForm()" *ngIf="comment.user.username === currentUser.username">
+        <img src="assets/images/icon-edit.svg" alt="icon-edit">
+        Edit
+      </div>
+    </div>
+  </div>
+
 </div>
-<app-form *ngIf="displayForm" [isEditReply]="comment.replyingTo !== undefined && comment.replyingTo !== null" [replyCommentId]="comment.id"></app-form>
+<app-form *ngIf="displayForm" [isEditReply]="isEditReply" [replyCommentId]="comment.id"></app-form>
 <div class="comment-replies" *ngIf="comment.replies && comment.replies.length > 0">
   <div class="comment-replies__margin"></div>
   <div><app-comment *ngFor="let comment of comment.replies" [comment]="comment"></app-comment></div>

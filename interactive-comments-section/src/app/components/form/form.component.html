@@ -6,9 +6,18 @@
     <div>
       <textarea class="form__textarea" formControlName="content" [ngClass]="isEditReply ? 'form__textarea--edit-reply' : ''" id="content" placeholder="Add a comment..."></textarea>
     </div>
-
     <div>
       <button type="submit" class="form__button">{{buttonText | uppercase}}</button>
     </div>
+  </form>
+</div>
+
+<div class="form-mobile">
+  <form [formGroup]="commentForm" (ngSubmit)="onSubmitForm()">
+    <textarea class="form__textarea" formControlName="content" [ngClass]="isEditReply ? 'form__textarea--edit-reply' : ''" id="content" placeholder="Add a comment..."></textarea>
+  <div style="display: flex;justify-content: space-between;align-items: center;">
+    <img class="form__user-image" [src]="imageUrl" [alt]="currentUser.username">
+    <button type="submit" class="form__button">{{buttonText | uppercase}}</button>
+  </div>
   </form>
 </div>

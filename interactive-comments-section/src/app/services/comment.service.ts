@@ -72,37 +72,50 @@ export class CommentService {
     this.refreshLocalData(comments);
   }
 
-  updateCommentScore(commentId: number, action: string): Comment {
-    let result!: Comment;
+  updateCommentScore(commentId: number, action: string): void {
     let comments = this.getAllComments();
     for (let i in comments) {
       if (commentId === comments[i].id) {
         if(comments[i].isRated) {
-          comments[i].score = action === 'plus' ? comments[i].score + 2 : comments[i].score - 2;
+          if (comments[i].ratingAction === action) {
+            comments[i].score = action === 'plus' ? comments[i].score - 1 : comments[i].score + 1;
+            comments[i].isRated = false;
+            comments[i].ratingAction = '';
+          } else {
+            comments[i].score = action === 'plus' ? comments[i].score + 2 : comments[i].score - 2;
+            comments[i].ratingAction = action;
+            comments[i].isRated = true;
+          }
         } else {
           comments[i].score = action === 'plus' ? comments[i].score + 1 : comments[i].score - 1;
+          comments[i].ratingAction = action;
+          comments[i].isRated = true;
         }
-        comments[i].ratingAction = action;
-        comments[i].isRated = true;
-        result = comments[i];
         break;
       } else {
         const replyComment = comments[i].replies.find(replyComment => replyComment.id === commentId);
         if (replyComment) {
           if(replyComment.isRated) {
-            replyComment.score = action === 'plus' ? replyComment.score + 2 : replyComment.score - 2;
+            if (replyComment.ratingAction === action) {
+              replyComment.score = action === 'plus' ? replyComment.score - 1 : replyComment.score + 1;
+              replyComment.isRated = false;
+              replyComment.ratingAction = '';
+            } else {
+              replyComment.score = action === 'plus' ? replyComment.score + 2 : replyComment.score - 2;
+              replyComment.ratingAction = action;
+              replyComment.isRated = true;
+            }
           } else {
             replyComment.score = action === 'plus' ? replyComment.score + 1 : replyComment.score - 1;
+            replyComment.ratingAction = action;
+            replyComment.isRated = true;
           }
-          replyComment.ratingAction = action;
-          replyComment.isRated = true;
-          result = replyComment;
+
           break;
         }
       }
     }
     this.refreshLocalData(comments);
-    return result;
   }
 
   deleteComment(commentId: number) {
@@ -122,13 +135,30 @@ export class CommentService {
     this.refreshLocalData(comments);
   }
 
+  editComment(commentId: number, body:any) {
+    let comments:any = this.getAllComments();
+    for (let i in comments) {
+      if (commentId === comments[i].id) {
+        comments[i].content = body.content
+        break;
+      } else {
+        for (let j in comments[i].replies) {
+          if (commentId === comments[i].replies[j].id) {
+            comments[i].replies[j].content = body.content;
+          }
+        }
+      }
+    }
+    this.refreshLocalData(comments);
+  }
+
   private refreshLocalData(comments: Comment[]) {
     let json = localStorage.getItem('datas');
     if (json !== null) {
       let data = JSON.parse(json);
       data['comments'] = comments;
       localStorage.setItem('datas', JSON.stringify(data));
-      this.eventEmitterService.ooo.emit();
+      this.eventEmitterService.refreshDataEmitter.emit();
     }
   }
 }

@@ -6,17 +6,16 @@ import {Subscriber, Subscription} from "rxjs";
 })
 export class EventEmitterService {
 
-  invokeFirstComponentFunction = new EventEmitter();
-  ooo = new EventEmitter();
-  subsVar!: Subscription;
+  modalEmitter = new EventEmitter();
+  refreshDataEmitter = new EventEmitter();
 
   constructor() { }
 
-  onFirstComponentButtonClick(commentId: number) {
-    this.invokeFirstComponentFunction.emit(commentId);
+  onOpenModal(commentId: number) {
+    this.modalEmitter.emit(commentId);
   }
 
   ppp() {
-    this.ooo.emit();
+    this.refreshDataEmitter.emit();
   }
 }

@@ -1,6 +1,11 @@
 main {
   width: 730px;
-  margin-top: 64px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 64px auto;
+}
+
+@media screen and (max-width: 840px) {
+  main {
+    width: 343px;
+    margin: 32px auto;
+  }
 }

@@ -1,5 +1,4 @@
 import {User} from "./user.model";
-import {CommentService} from "../services/comment.service";
 
 export class Comment {
   id!:number;
@@ -8,10 +7,10 @@ export class Comment {
   replies!: Comment[];
   replyingTo!: string;
   user!: User;
-  createdAt!: string;
+  createdAt!: string|Date;
   isRated!: boolean;
   ratingAction!: string;
-  constructor(id: number, content: string, score: number, replies: Comment[], replyingTo: string, user: User, createdAt: string, isRated: boolean|null, ratingAction: string|null) {
+  constructor(id: number, content: string, score: number, replies: Comment[], replyingTo: string, user: User, createdAt: string|Date, isRated: boolean|null, ratingAction: string|null) {
     this.id = id;
     this.content = content;
     this.score = score;

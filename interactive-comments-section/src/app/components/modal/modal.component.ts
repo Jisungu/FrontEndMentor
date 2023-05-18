@@ -19,7 +19,7 @@ export class ModalComponent implements OnInit {
 
   }
   ngOnInit() {
-      this.eventEmitterService.invokeFirstComponentFunction.subscribe((commentId:number) => {
+      this.eventEmitterService.modalEmitter.subscribe((commentId:number) => {
         this.modal = this._document.querySelector('.modal');
         this.mask = this._document.querySelector('.mask');
         this.commentId = commentId;

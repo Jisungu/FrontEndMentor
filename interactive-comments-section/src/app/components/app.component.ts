@@ -2,6 +2,7 @@ import {Component, OnInit, Output} from '@angular/core';
 import data from '../../../data.json';
 import {interval, Observable} from "rxjs";
 import {EventEmitterService} from "../services/event-emitter.service";
+import {Comment} from "../models/comment.model";
 
 @Component({
   selector: 'app-root',
@@ -17,11 +18,10 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit() {
-      this.eventEmitterService.ooo.subscribe((name:string) => {
+      this.eventEmitterService.refreshDataEmitter.subscribe((name:string) => {
         this.refreshData();
       });
     this.refreshData();
-
   }
 
   refreshData() {
