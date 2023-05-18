@@ -1,15 +1,15 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {User} from "../../models/user.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CommentService} from "../../services/comment.service";
 import {Comment} from "../../models/comment.model";
-import {AppComponent} from "../app.component";
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  styleUrls: ['./form.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FormComponent implements OnInit {
   @Input() isEditReply:boolean = false;

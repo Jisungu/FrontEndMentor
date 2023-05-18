@@ -1,16 +1,16 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {Comment} from "../../models/comment.model";
 import {UserService} from "../../services/user.service";
 import {User} from "../../models/user.model";
 import {CommentService} from "../../services/comment.service";
-import {ModalComponent} from "../modal/modal.component";
 import {EventEmitterService} from "../../services/event-emitter.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-comment',
   templateUrl: './comment.component.html',
-  styleUrls: ['./comment.component.scss']
+  styleUrls: ['./comment.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CommentComponent implements OnInit{
   @Input() comment!: Comment;
