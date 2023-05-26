@@ -26,7 +26,7 @@ Users should be able to :
 - Perform mathmatical operations like addition, subtraction, multiplication, and division
 - Adjust the color theme based on their preference
 - **Bonus**: Have their initial theme preference checked using `prefers-color-scheme` and have any additional changes saved in the browser
-- 
+
 ### Links
 
 - [Solution](https://github.com/Jisungu/FrontEndMentor/tree/main/calculator-app)
