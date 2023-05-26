@@ -1,0 +1,366 @@
+@import url('https://fonts.cdnfonts.com/css/league-spartan');
+//-------------Variables-------------------------
+
+
+// ----- Theme 1 -----
+
+//Background Colors
+
+$very-dark-desaturated-blue-main: hsl(222, 26%, 31%);
+$very-dark-desaturated-blue-toggle: hsl(223, 31%, 20%);
+$very-dark-desaturated-blue-screen: hsl(224, 36%, 15%);
+
+//Keys Colors
+
+$desaturated-dark-blue-background: hsl(225, 21%, 49%);
+$desaturated-dark-blue-shadow: hsl(224, 28%, 35%);
+$red: hsl(6, 63%, 50%);
+$dark-red: hsl(6, 70%, 34%);
+$light-grayish-orange : hsl(30, 25%, 89%);
+$grayish-orange: hsl(28, 16%, 65%);
+
+//Text Colors
+$very-dark-grayish-blue: hsl(221, 14%, 31%);
+
+
+// ----- Theme 2 -----
+
+//Background Colors
+
+$light-gray: hsl(0, 0%, 90%);
+$grayish-red: hsl(0, 5%, 81%);
+$very-light-gray: hsl(0, 0%, 93%);
+
+//Keys Colors
+
+$dark-moderate-cyan: hsl(185, 42%, 37%);
+$very-dark-cyan: hsl(185, 58%, 25%);
+$orange: hsl(25, 98%, 40%);
+$dark-orange: hsl(25, 99%, 27%);
+$light-grayish-yellow: hsl(45, 7%, 89%);
+$dark-grayish-orange: hsl(35, 11%, 61%);
+
+//Text Colors
+$very-dark-grayish-yellow: hsl(60, 10%, 19%);
+
+// ----- Theme 3 -----
+
+//Background Colors
+
+$very-dark-violet-main: hsl(268, 75%, 9%);
+$very-dark-violet-toggle: hsl(268, 71%, 12%);
+
+//Keys Colors
+
+$dark-violet: hsl(281, 89%, 26%);
+$vivid-magenta: hsl(285, 91%, 52%);
+$pure-cyan: hsl(176, 100%, 44%);
+$soft-cyan: hsl(177, 92%, 70%);
+$very-dark-violet: hsl(268, 47%, 21%);
+$dark-magenta: hsl(290, 70%, 36%);
+
+//Text Colors
+
+$light-yellow: hsl(52, 100%, 62%);
+$very-dark-blue: hsl(198, 20%, 13%);
+$white: hsl(0, 0%, 100%);
+
+//------------------------------------------------
+main {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  height: 100%;
+  position: relative;
+  transition: background-color 0.3s;
+}
+
+#calculator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 540px;
+  transition: color 0.3s;
+  #header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__theme {
+      display: flex;
+      align-items: center;
+      font-size: 10px;
+      &-label {
+        margin-right: 30px;
+        letter-spacing: 3px;
+        .title {
+          min-height: 25px;
+          display: flex;
+          align-items: center;
+          margin-top: 8px;
+          font-size: 9px;
+          letter-spacing: 2px
+        }
+      }
+      &-toggle {
+        width: 70px;
+        &-labels {
+          display: flex;
+          justify-content: space-around;
+        }
+        &-button {
+          min-height: 25px;
+          margin-top: 8px;
+          position: relative;
+          border-radius: 12px;
+          transition: background-color 0.3s;
+          cursor: pointer;
+          div {
+            width: 16px;
+            height: 16px;
+            border-radius: 18px;
+            position: absolute;
+            top: 50%;
+            transition: left 0.3s, background-color 0.3s, transform 0.3s, margin-left 0.3s;
+          }
+        }
+      }
+    }
+    &__title {
+      font-size: 24px;
+    }
+  }
+  &__result {
+    min-height: 128px;
+    margin-top: 32px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 45px;
+    padding-right: 35px;
+    transition: background-color 0.3s;
+    border-radius: 12px;
+  }
+  &__buttons {
+    padding: 7px 5px;
+    transition: background-color 0.3s;
+    border-radius: 12px;
+    table {
+      border-collapse: separate;
+      border-spacing: 25px;
+      width: 100%;
+    }
+    .calculator__button {
+      transition: background-color 0.3s, color 0.3s;
+      width: 101px;
+      height: 60px;
+      position: relative;
+      margin: 86px;
+      border-radius: 10px;
+      font-size: 32px;
+      cursor: pointer;
+      &-active {
+        box-shadow: none !important;
+        transform: translateY(4px);
+      }
+      &--del {
+        font-size: 24px;
+      }
+      &--submit {
+        font-size: 24px;
+      }
+      span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-top: 4px;
+      }
+    }
+  }
+}
+
+.calculator__theme1 {
+  background-color: $very-dark-desaturated-blue-main;
+  color: $white;
+  #calculator {
+    #header {
+      &__theme {
+        &-toggle {
+          &-button {
+            background-color: $very-dark-desaturated-blue-toggle;
+            &:hover {
+              div {
+                background-color: #F96C5B;
+              }
+            }
+            div {
+              background-color: $red;
+              left: 0;
+              transform: translate(0, -50%);
+              margin-left: 6px;
+            }
+          }
+        }
+      }
+    }
+    &__result {
+      background-color: $very-dark-desaturated-blue-screen;
+    }
+    &__buttons {
+      background-color: $very-dark-desaturated-blue-toggle;
+      .calculator__button {
+        background-color: $light-grayish-orange;
+        box-shadow: 0 4px 0 0 $grayish-orange;
+        color: $very-dark-grayish-blue;
+        &:hover {
+          background-color: white;
+        }
+        &--del {
+          background-color: $desaturated-dark-blue-background;
+          box-shadow: 0 4px 0 0 $desaturated-dark-blue-shadow;
+          color: $white;
+          &:hover {
+            background-color: #A2B3E1;
+          }
+        }
+        &--submit {
+          background-color: $red;
+          box-shadow: 0 4px 0 0 $dark-red;
+          color: $white;
+          &:hover {
+            background-color: #F96C5B;
+          }
+        }
+      }
+    }
+  }
+}
+
+.calculator__theme2 {
+  background-color: $light-gray;
+  color: $very-dark-grayish-yellow;
+  #calculator {
+    #header {
+      &__theme {
+        &-toggle {
+          &-button {
+            background-color: $grayish-red;
+            &:hover {
+              div {
+                background-color: #FF8B38;
+              }
+            }
+            div {
+              background-color: $orange;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+          }
+        }
+      }
+    }
+    &__result {
+      background-color: $very-light-gray;
+    }
+    &__buttons {
+      background-color: $grayish-red;
+      .calculator__button {
+        background-color: $light-grayish-yellow;
+        box-shadow: 0 4px 0 0 $dark-grayish-orange;
+        &:hover {
+          background-color: $white;
+        }
+        &--del {
+          background-color: $dark-moderate-cyan;
+          box-shadow: 0 4px 0 0 $very-dark-cyan;
+          color: $white;
+          &:hover {
+            background-color: #62B5BD;
+          }
+        }
+        &--submit {
+          background-color: $orange;
+          box-shadow: 0 4px 0 0 $dark-orange;
+          color: $white;
+          &:hover {
+            background-color: #FF8B38;
+          }
+        }
+      }
+    }
+  }
+}
+
+.calculator__theme3 {
+  background-color: $very-dark-violet-main;
+  color: $light-yellow;
+  #calculator {
+    #header {
+      &__theme {
+        &-toggle {
+          &-button {
+            background-color: $very-dark-violet-toggle;
+            &:hover {
+              div {
+                background-color: #94FFF9;
+              }
+            }
+            div {
+              background-color: $pure-cyan;
+              left: 100%;
+              transform: translate(-100%,-50%);
+              margin-left: -6px;
+            }
+          }
+        }
+      }
+    }
+    &__result {
+      background-color: $very-dark-violet-toggle;
+    }
+    &__buttons {
+      background-color: $very-dark-violet-toggle;
+      .calculator__button {
+        background-color: $very-dark-violet;
+        box-shadow: 0 4px 0 0 $dark-magenta;
+        &:hover {
+          background-color: #6A35AB;
+        }
+        &--del {
+          background-color: $dark-violet;
+          box-shadow: 0 4px 0 0 $vivid-magenta;
+          color: $white;
+          &:hover {
+            background-color: #8631B0;
+          }
+        }
+        &--submit {
+          background-color: $pure-cyan;
+          box-shadow: 0 4px 0 0 $soft-cyan;
+          color: $very-dark-blue;
+          &:hover {
+            background-color: #94FFF9;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width : 320px) and (max-width : 480px) {
+  #calculator {
+    width: 330px;
+    &__result {
+      font-size: 35px;
+    }
+    &__buttons {
+      .calculator__button {
+        font-size: 24px;
+        &--del, &--submit {
+          font-size: 16px;
+        }
+      }
+  }
+}
+}

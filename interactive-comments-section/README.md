@@ -32,7 +32,7 @@ Users should be able to :
 ### Links
 
 - [Solution](https://github.com/Jisungu/FrontEndMentor/tree/main/interactive-comments-section)
-- [Live Demo](https://Jisungu.github.io/FrontEndMentor/interactive-comments-section/docs)
+- [Live Demo](https://interactive-comments-section-angular.vercel.app/)
 
 ## My process
 

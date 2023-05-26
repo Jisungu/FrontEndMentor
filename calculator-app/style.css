@@ -1,0 +1,269 @@
+@import url("https://fonts.cdnfonts.com/css/league-spartan");
+main {
+  font-family: "League Spartan", sans-serif;
+  font-weight: 700;
+  height: 100%;
+  position: relative;
+  transition: background-color 0.3s;
+}
+
+#calculator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 540px;
+  transition: color 0.3s;
+}
+#calculator #header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#calculator #header__theme {
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+}
+#calculator #header__theme-label {
+  margin-right: 30px;
+  letter-spacing: 3px;
+}
+#calculator #header__theme-label .title {
+  min-height: 25px;
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+#calculator #header__theme-toggle {
+  width: 70px;
+}
+#calculator #header__theme-toggle-labels {
+  display: flex;
+  justify-content: space-around;
+}
+#calculator #header__theme-toggle-button {
+  min-height: 25px;
+  margin-top: 8px;
+  position: relative;
+  border-radius: 12px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+#calculator #header__theme-toggle-button div {
+  width: 16px;
+  height: 16px;
+  border-radius: 18px;
+  position: absolute;
+  top: 50%;
+  transition: left 0.3s, background-color 0.3s, transform 0.3s, margin-left 0.3s;
+}
+#calculator #header__title {
+  font-size: 24px;
+}
+#calculator__result {
+  min-height: 128px;
+  margin-top: 32px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 45px;
+  padding-right: 35px;
+  transition: background-color 0.3s;
+  border-radius: 12px;
+}
+#calculator__buttons {
+  padding: 7px 5px;
+  transition: background-color 0.3s;
+  border-radius: 12px;
+}
+#calculator__buttons table {
+  border-collapse: separate;
+  border-spacing: 25px;
+  width: 100%;
+}
+#calculator__buttons .calculator__button {
+  transition: background-color 0.3s, color 0.3s;
+  width: 101px;
+  height: 60px;
+  position: relative;
+  margin: 86px;
+  border-radius: 10px;
+  font-size: 32px;
+  cursor: pointer;
+}
+#calculator__buttons .calculator__button-active {
+  box-shadow: none !important;
+  transform: translateY(4px);
+}
+#calculator__buttons .calculator__button--del {
+  font-size: 24px;
+}
+#calculator__buttons .calculator__button--submit {
+  font-size: 24px;
+}
+#calculator__buttons .calculator__button span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 4px;
+}
+
+.calculator__theme1 {
+  background-color: hsl(222, 26%, 31%);
+  color: hsl(0, 0%, 100%);
+}
+.calculator__theme1 #calculator #header__theme-toggle-button {
+  background-color: hsl(223, 31%, 20%);
+}
+.calculator__theme1 #calculator #header__theme-toggle-button:hover div {
+  background-color: #F96C5B;
+}
+.calculator__theme1 #calculator #header__theme-toggle-button div {
+  background-color: hsl(6, 63%, 50%);
+  left: 0;
+  transform: translate(0, -50%);
+  margin-left: 6px;
+}
+.calculator__theme1 #calculator__result {
+  background-color: hsl(224, 36%, 15%);
+}
+.calculator__theme1 #calculator__buttons {
+  background-color: hsl(223, 31%, 20%);
+}
+.calculator__theme1 #calculator__buttons .calculator__button {
+  background-color: hsl(30, 25%, 89%);
+  box-shadow: 0 4px 0 0 hsl(28, 16%, 65%);
+  color: hsl(221, 14%, 31%);
+}
+.calculator__theme1 #calculator__buttons .calculator__button:hover {
+  background-color: white;
+}
+.calculator__theme1 #calculator__buttons .calculator__button--del {
+  background-color: hsl(225, 21%, 49%);
+  box-shadow: 0 4px 0 0 hsl(224, 28%, 35%);
+  color: hsl(0, 0%, 100%);
+}
+.calculator__theme1 #calculator__buttons .calculator__button--del:hover {
+  background-color: #A2B3E1;
+}
+.calculator__theme1 #calculator__buttons .calculator__button--submit {
+  background-color: hsl(6, 63%, 50%);
+  box-shadow: 0 4px 0 0 hsl(6, 70%, 34%);
+  color: hsl(0, 0%, 100%);
+}
+.calculator__theme1 #calculator__buttons .calculator__button--submit:hover {
+  background-color: #F96C5B;
+}
+
+.calculator__theme2 {
+  background-color: hsl(0, 0%, 90%);
+  color: hsl(60, 10%, 19%);
+}
+.calculator__theme2 #calculator #header__theme-toggle-button {
+  background-color: hsl(0, 5%, 81%);
+}
+.calculator__theme2 #calculator #header__theme-toggle-button:hover div {
+  background-color: #FF8B38;
+}
+.calculator__theme2 #calculator #header__theme-toggle-button div {
+  background-color: hsl(25, 98%, 40%);
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.calculator__theme2 #calculator__result {
+  background-color: hsl(0, 0%, 93%);
+}
+.calculator__theme2 #calculator__buttons {
+  background-color: hsl(0, 5%, 81%);
+}
+.calculator__theme2 #calculator__buttons .calculator__button {
+  background-color: hsl(45, 7%, 89%);
+  box-shadow: 0 4px 0 0 hsl(35, 11%, 61%);
+}
+.calculator__theme2 #calculator__buttons .calculator__button:hover {
+  background-color: hsl(0, 0%, 100%);
+}
+.calculator__theme2 #calculator__buttons .calculator__button--del {
+  background-color: hsl(185, 42%, 37%);
+  box-shadow: 0 4px 0 0 hsl(185, 58%, 25%);
+  color: hsl(0, 0%, 100%);
+}
+.calculator__theme2 #calculator__buttons .calculator__button--del:hover {
+  background-color: #62B5BD;
+}
+.calculator__theme2 #calculator__buttons .calculator__button--submit {
+  background-color: hsl(25, 98%, 40%);
+  box-shadow: 0 4px 0 0 hsl(25, 99%, 27%);
+  color: hsl(0, 0%, 100%);
+}
+.calculator__theme2 #calculator__buttons .calculator__button--submit:hover {
+  background-color: #FF8B38;
+}
+
+.calculator__theme3 {
+  background-color: hsl(268, 75%, 9%);
+  color: hsl(52, 100%, 62%);
+}
+.calculator__theme3 #calculator #header__theme-toggle-button {
+  background-color: hsl(268, 71%, 12%);
+}
+.calculator__theme3 #calculator #header__theme-toggle-button:hover div {
+  background-color: #94FFF9;
+}
+.calculator__theme3 #calculator #header__theme-toggle-button div {
+  background-color: hsl(176, 100%, 44%);
+  left: 100%;
+  transform: translate(-100%, -50%);
+  margin-left: -6px;
+}
+.calculator__theme3 #calculator__result {
+  background-color: hsl(268, 71%, 12%);
+}
+.calculator__theme3 #calculator__buttons {
+  background-color: hsl(268, 71%, 12%);
+}
+.calculator__theme3 #calculator__buttons .calculator__button {
+  background-color: hsl(268, 47%, 21%);
+  box-shadow: 0 4px 0 0 hsl(290, 70%, 36%);
+}
+.calculator__theme3 #calculator__buttons .calculator__button:hover {
+  background-color: #6A35AB;
+}
+.calculator__theme3 #calculator__buttons .calculator__button--del {
+  background-color: hsl(281, 89%, 26%);
+  box-shadow: 0 4px 0 0 hsl(285, 91%, 52%);
+  color: hsl(0, 0%, 100%);
+}
+.calculator__theme3 #calculator__buttons .calculator__button--del:hover {
+  background-color: #8631B0;
+}
+.calculator__theme3 #calculator__buttons .calculator__button--submit {
+  background-color: hsl(176, 100%, 44%);
+  box-shadow: 0 4px 0 0 hsl(177, 92%, 70%);
+  color: hsl(198, 20%, 13%);
+}
+.calculator__theme3 #calculator__buttons .calculator__button--submit:hover {
+  background-color: #94FFF9;
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  #calculator {
+    width: 330px;
+  }
+  #calculator__result {
+    font-size: 35px;
+  }
+  #calculator__buttons .calculator__button {
+    font-size: 24px;
+  }
+  #calculator__buttons .calculator__button--del, #calculator__buttons .calculator__button--submit {
+    font-size: 16px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

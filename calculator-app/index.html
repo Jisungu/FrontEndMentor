@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | Calculator app</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <main class="calculator__theme1">
+    <div id="calculator">
+      <div id="header">
+        <div id="header__title">calc</div>
+        <div id="header__theme">
+          <div id="header__theme-label">
+            <div style="min-height: 10px"></div>
+            <div class="title">THEME</div>
+          </div>
+          <div id="header__theme-toggle">
+            <div id="header__theme-toggle-labels">
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+            </div>
+            <div id="header__theme-toggle-button">
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="calculator__result">0</div>
+      <div id="calculator__buttons">
+        <table>
+          <tr>
+            <td class="calculator__button" onclick="pushButton('7')"><span>7</span></td>
+            <td class="calculator__button" onclick="pushButton('8')"><span>8</span></td>
+            <td class="calculator__button" onclick="pushButton('9')"><span>9</span></td>
+            <td class="calculator__button calculator__button--del" onclick="pushButton('del')"><span>DEL</span></td>
+          </tr>
+          <tr>
+            <td class="calculator__button" onclick="pushButton('4')"><span>4</span></td>
+            <td class="calculator__button" onclick="pushButton('5')"><span>5</span></td>
+            <td class="calculator__button" onclick="pushButton('6')"><span>6</span></td>
+            <td class="calculator__button" onclick="pushButton('+')"><span>+</span></td>
+          </tr>
+          <tr>
+            <td class="calculator__button" onclick="pushButton('1')"><span>1</span></td>
+            <td class="calculator__button" onclick="pushButton('2')"><span>2</span></td>
+            <td class="calculator__button" onclick="pushButton('3')"><span>3</span></td>
+            <td class="calculator__button" onclick="pushButton('-')"><span>-</span></td>
+          </tr>
+          <tr>
+            <td class="calculator__button" onclick="pushButton(',')"><span>.</span></td>
+            <td class="calculator__button" onclick="pushButton('0')"><span>0</span></td>
+            <td class="calculator__button" onclick="pushButton('/')"><span>/</span></td>
+            <td class="calculator__button" onclick="pushButton('*')"><span>x</span></td>
+          </tr>
+          <tr>
+            <td colspan="2" class="calculator__button calculator__button--del" onclick="pushButton('reset')"><span>RESET</span></td>
+            <td colspan="2" class="calculator__button calculator__button--submit" onclick="pushButton('=')"><span>=</span></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
