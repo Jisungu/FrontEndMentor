@@ -116,6 +116,11 @@ function pushButton(button) {
                 let value = $('#calculator__result').text();
                 if (value.length < 10) {
                     $('#calculator__result').text(value+button);
+                } else {
+                    $('#calculator__result').addClass('calculator__result--full');
+                    setTimeout(() => {
+                        $('#calculator__result').removeClass('calculator__result--full');
+                    }, 820)
                 }
             }
             if (operator) {
