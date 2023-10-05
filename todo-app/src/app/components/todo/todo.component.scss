@@ -1,0 +1,168 @@
+.todo {
+    position: absolute;
+    width: 540px;
+    top: 79px;
+    left: 50%;
+    transform: translateX(-50%);
+    .header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 50px;
+        .title  {
+            color: white;
+            font-size: 33px;
+            letter-spacing: 15px;
+            font-weight: 800;
+        }
+    }
+    .todo-form {
+        input {
+            height: 64px;
+            font-size: 22px;
+            border-radius: 5px;
+            border: none;
+            &.form-light {
+                background-color: #fff;
+                &::placeholder {
+                    color: initial
+                }
+            }
+            &.form-dark {
+                background-color: #25273c;
+                color: #a9abc2;
+                &::placeholder {
+                    color: #74768b
+                }
+            }
+        }
+        button {
+            display: none;
+        }
+        margin-bottom: 23px;
+    }
+    .todo-table {
+        transition: all .2s linear;
+        box-shadow: 0px 5px 11px 0px #00000059;
+        &.todo-table-light {
+            background-color: #fff;
+            .todo-stats {
+                color : #969698;
+                .filter-buttons {
+                    .active {
+                        color : #5676bf;
+                        font-weight: bold;
+                    }
+                    div {
+                        &:hover {
+                            color : #000;
+                        }
+                    }
+                }
+                .clear-button {
+                    &:hover {
+                        color: #000;
+                    }
+                }
+            }
+        }
+        &.todo-table-dark {
+            background-color: #25273c;
+            color: #a9abc2;
+            .todo-stats {
+                color : #5a5c73;
+                .active {
+                    color : #5676bf;
+                    font-weight: bold;
+                }
+                .filter-buttons {
+                    div {
+                        &:hover {
+                            color : #fff;
+                        }
+                    }
+                }
+                .clear-button {
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+       .todo-table-items {
+        overflow-y: scroll;
+        max-height: 36em;
+        }
+        .todo-stats {
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            .filter-buttons {
+                display: flex;
+                div {
+                    margin: 0 5px;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+            .clear-button {
+                cursor: pointer;
+                &:hover {
+                    color: #000;
+                    cursor: pointer;
+                }
+            }
+        } 
+    }
+    
+    .screen-mode-button {
+        cursor: pointer;
+    }
+    .mobile-filter-buttons {
+        display: none;
+        margin-top: 16px;
+        box-shadow: 0 0 13px 0px #00000033;
+        &.mobile-filter-light {
+            background-color: #fff;
+            color : #969698;
+            .active {
+                color : #5676bf;
+                font-weight: bold;
+            }
+            div {
+                &:hover {
+                    color : #000;
+                }
+            }
+        }
+        &.mobile-filter-dark {
+            background-color: #25273c;
+            color : #5a5c73;
+            .active {
+                color : #5676bf;
+                font-weight: bold;
+            }
+            .filter-buttons {
+                div {
+                    &:hover {
+                        color : #fff;
+                    }
+                }
+            }
+        }
+        padding: 25px;
+        justify-content: space-evenly;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .mobile-filter-buttons {
+        display: flex !important;
+    }
+    .todo {
+        width: 325px;
+    }
+    .filter-buttons {
+        display: none !important;
+     }
+}

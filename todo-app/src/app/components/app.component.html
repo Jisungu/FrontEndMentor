@@ -1,0 +1,3 @@
+<div class="main" [ngClass]="mode === 'light' ? 'main-light' : 'main-dark'" >
+  <app-todo [mode]="mode" (modeEvent)="changeScreen()"></app-todo>
+</div>

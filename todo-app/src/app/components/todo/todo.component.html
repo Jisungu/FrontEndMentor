@@ -1,0 +1,51 @@
+<div class="todo">
+    <div class="header">
+        <div class="title">TODO</div>
+        <div class="screen-mode-button" (click)="changeMode()">
+            <img src="../../../assets/images/icon-moon.svg" alt="icon-moon" *ngIf="mode == 'dark'" width="29" height="29">
+            <img src="../../../assets/images/icon-sun.svg" alt="icon-sun" *ngIf="mode == 'light'" width="29" height="29">
+        </div>
+    </div>
+    <form [formGroup]="todoForm" (ngSubmit)="onSubmitForm()">
+        <div class="todo-form input-group">
+            <input
+            type="text"
+            class="form-control"
+            placeholder="Create a new todo"
+            aria-label="Example text with button addon"
+            aria-describedby="button-addon1"
+            formControlName="text"
+            [ngClass]="mode == 'light' ? 'form-light' : 'form-dark'"
+            />
+            <button class="btn btn-outline-primary" type="submit" id="button-addon1" data-mdb-ripple-color="dark">
+                Ajouter
+            </button>
+        </div>
+    </form>
+    <div class="todo-table" [ngClass]="mode == 'light' ? 'todo-table-light' : 'todo-table-dark'">
+        <div class="todo-table-items">
+            <app-item *ngFor="let item of items" [item]="item" [mode]="mode" (itemEvent)="updateItem($event)"></app-item>
+        </div>
+        <div class="todo-stats">
+            <div class="" *ngIf="itemCount > 1">
+                {{ itemCount }} items left
+            </div>
+            <div class="" *ngIf="itemCount <= 1">
+                {{ itemCount }} item left
+            </div>
+            <div class="filter-buttons">
+                <div [ngClass]="filter === 'all' ? 'active' : ''" (click)="changeFilter('all')">All</div>
+                <div [ngClass]="filter === 'active' ? 'active' : ''" (click)="changeFilter('active')">Active</div>
+                <div [ngClass]="filter === 'completed' ? 'active' : ''" (click)="changeFilter('completed')">Completed</div>
+            </div>
+            <div class="clear-button" (click)="clearCompleted()">
+                Clear completed
+            </div>
+        </div>
+    </div>
+    <div class="mobile-filter-buttons" [ngClass]="mode == 'light' ? 'mobile-filter-light' : 'mobile-filter-dark'">
+        <div [ngClass]="filter === 'all' ? 'active' : ''" (click)="changeFilter('all')">All</div>
+        <div [ngClass]="filter === 'active' ? 'active' : ''" (click)="changeFilter('active')">Active</div>
+        <div [ngClass]="filter === 'completed' ? 'active' : ''" (click)="changeFilter('completed')">Completed</div>
+    </div>
+</div>
