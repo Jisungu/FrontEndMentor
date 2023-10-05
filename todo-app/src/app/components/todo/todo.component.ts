@@ -30,6 +30,8 @@ export class TodoComponent implements OnInit{
     if (this.datas != null && this.datas.length > 0) {
       this.items = this.datas;
       this.itemCount = this.datas.filter((item:Item) => !item.done).length;
+    } else {
+      this.datas = [];
     }
     this.todoForm = this.formBuilder.group({
       text: [this.itemText, Validators.required],
