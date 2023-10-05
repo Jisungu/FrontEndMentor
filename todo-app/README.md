@@ -32,7 +32,7 @@ Users should be able to:
 ### Links
 
 - [Solution](https://github.com/Jisungu/FrontEndMentor/tree/main/todo-app)
-- [Live Demo](https://Jisungu.github.io/FrontEndMentor/todo-app)
+- [Live Demo](https://todo-app-five-bice.vercel.app/)
 
 ## My process
 
@@ -41,6 +41,8 @@ Users should be able to:
 - HTML5
 - CSS3
 - jQuery
+- AngularJS
+- MDBootstrap
 
 ## Author
 

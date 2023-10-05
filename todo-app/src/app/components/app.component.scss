@@ -16,3 +16,15 @@
     }
     
 }
+
+@media screen and (max-width: 500px) {
+    .main {
+        &.main-light {
+            background-image: url(../../assets/images/bg-mobile-light.jpg);
+        }
+        &.main-dark {
+            background-image: url(../../assets/images/bg-mobile-dark.jpg);
+            background-color: #181824;
+        }
+    }
+}
