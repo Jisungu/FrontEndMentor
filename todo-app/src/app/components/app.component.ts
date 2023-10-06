@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     let mode = localStorage.getItem('mode');
-    this.mode = mode != null ? mode : 'light';
+    this.mode = mode != null ? mode : 'dark';
   }
 
   changeScreen () : void {

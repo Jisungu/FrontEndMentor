@@ -2,8 +2,8 @@
     <div class="header">
         <div class="title">TODO</div>
         <div class="screen-mode-button" (click)="changeMode()">
-            <img src="../../../assets/images/icon-moon.svg" alt="icon-moon" *ngIf="mode == 'dark'" width="29" height="29">
-            <img src="../../../assets/images/icon-sun.svg" alt="icon-sun" *ngIf="mode == 'light'" width="29" height="29">
+            <img src="../../../assets/images/icon-moon.svg" alt="icon-moon" *ngIf="mode == 'light'" width="29" height="29">
+            <img src="../../../assets/images/icon-sun.svg" alt="icon-sun" *ngIf="mode == 'dark'" width="29" height="29">
         </div>
     </div>
     <form [formGroup]="todoForm" (ngSubmit)="onSubmitForm()">
